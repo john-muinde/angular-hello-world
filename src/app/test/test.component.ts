@@ -13,6 +13,8 @@ import { Component } from '@angular/core';
   template: `
     <h1>Welcome {{ greetUser() }}</h1>
     <p>{{ siteUrl }}</p>
+    <input type="text" name="" [id]="myId" />
+    <input type="text" name="" id="{{ myId }}" [disabled]="disabled" />
   `,
   styles: [
     `
@@ -25,6 +27,8 @@ import { Component } from '@angular/core';
 export class TestComponent {
   public name = 'Shwaz';
   public siteUrl = window.location.href;
+  public myId = 'testId';
+  public disabled = true;
 
   greetUser() {
     return 'Hello ' + this.name;
