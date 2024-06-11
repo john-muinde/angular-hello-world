@@ -8,8 +8,12 @@ import { Component } from '@angular/core';
   imports: [],
   // templateUrl: './test.component.html',
   // template: '<h1>Inline Template</h1>',
-  template: ` <h1>Inline Template</h1> `,
   // styleUrl: './test.component.css',
+
+  template: `
+    <h1>Welcome {{ greetUser() }}</h1>
+    <p>{{ siteUrl }}</p>
+  `,
   styles: [
     `
       h1 {
@@ -18,4 +22,11 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class TestComponent {}
+export class TestComponent {
+  public name = 'Shwaz';
+  public siteUrl = window.location.href;
+
+  greetUser() {
+    return 'Hello ' + this.name;
+  }
+}
