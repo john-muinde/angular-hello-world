@@ -112,7 +112,7 @@ export class TestComponent {
 
   public greeting = '';
 
-  public color = "red";
+  public color = 'red';
 
   greetUser() {
     return 'Hello ' + this.name;
