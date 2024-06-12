@@ -34,6 +34,9 @@ import { CommonModule } from '@angular/common';
     <button on-click="onClick($event)">Greet</button>
     <button (click)="greeting = 'Welcome Vishwas'">Greet</button>
     {{ greeting }}
+
+    <input #myInput type="text" />
+    <button (click)="logMessage(myInput)">Log</button>
   `,
   styles: [
     `
@@ -87,5 +90,9 @@ export class TestComponent {
   onClick(event: MouseEvent) {
     console.log(event);
     this.greeting = 'Welcome to Codevolution';
+  }
+
+  logMessage(value: HTMLInputElement) {
+    console.log(value);
   }
 }
