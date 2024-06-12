@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-test',
   // selector: '[app-test]',
   // selector: '.app-test',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   // templateUrl: './test.component.html',
   // template: '<h1>Inline Template</h1>',
   // styleUrl: './test.component.css',
@@ -37,6 +38,9 @@ import { CommonModule } from '@angular/common';
 
     <input #myInput type="text" />
     <button (click)="logMessage(myInput)">Log</button>
+
+    <input [(ngModel)]="name" type="text" />
+    {{ name }}
   `,
   styles: [
     `
