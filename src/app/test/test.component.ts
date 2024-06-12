@@ -29,6 +29,11 @@ import { CommonModule } from '@angular/common';
     <p [style.color]="highlightColor">{{ siteUrl }}</p>
 
     <p [ngStyle]="titleStyles">{{ siteUrl }}</p>
+
+    <button (click)="onClick($event)">Greet</button>
+    <button on-click="onClick($event)">Greet</button>
+    <button (click)="greeting = 'Welcome Vishwas'">Greet</button>
+    {{ greeting }}
   `,
   styles: [
     `
@@ -73,7 +78,14 @@ export class TestComponent {
     'text-special': this.isSpecial,
   };
 
+  public greeting = '';
+
   greetUser() {
     return 'Hello ' + this.name;
+  }
+
+  onClick(event: MouseEvent) {
+    console.log(event);
+    this.greeting = 'Welcome to Codevolution';
   }
 }
