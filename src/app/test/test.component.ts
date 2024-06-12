@@ -41,6 +41,24 @@ import { FormsModule } from '@angular/forms';
 
     <input [(ngModel)]="name" type="text" />
     {{ name }}
+
+    <!-- <div *ngIf="hasError; then thenBlock; else elseBlock"></div>
+
+    <ng-template #thenBlock>
+      <h2>Error Block</h2>
+    </ng-template>
+
+    <ng-template #elseBlock>
+      <h2>Else Block</h2>
+    </ng-template> -->
+
+    <div *ngIf="hasError; else elseBlock">
+      <h2>Error Block</h2>
+    </div>
+
+    <ng-template #elseBlock>
+      <h2>None error Block</h2>
+    </ng-template>
   `,
   styles: [
     `
@@ -69,7 +87,7 @@ export class TestComponent {
   public disabled = true;
 
   public successClass = 'text-success';
-  public hasError = true;
+  public hasError = false;
   public isSpecial = false;
 
   public highlightColor = 'orange';
