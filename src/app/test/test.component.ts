@@ -52,13 +52,20 @@ import { FormsModule } from '@angular/forms';
       <h2>Else Block</h2>
     </ng-template> -->
 
-    <div *ngIf="hasError; else elseBlock">
+    <!-- <div *ngIf="hasError; else elseBlock">
       <h2>Error Block</h2>
     </div>
 
     <ng-template #elseBlock>
       <h2>None error Block</h2>
-    </ng-template>
+    </ng-template> -->
+
+    <div [ngSwitch]="color">
+      <div *ngSwitchCase="'red'">You picked red color</div>
+      <div *ngSwitchCase="'blue'">You picked blue color</div>
+      <div *ngSwitchCase="'green'">You picked green color</div>
+      <div *ngSwitchDefault>Pick again</div>
+    </div>
   `,
   styles: [
     `
@@ -104,6 +111,8 @@ export class TestComponent {
   };
 
   public greeting = '';
+
+  public color = "red";
 
   greetUser() {
     return 'Hello ' + this.name;
